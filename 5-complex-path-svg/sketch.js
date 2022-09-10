@@ -9,7 +9,8 @@ let polygon;
 let ground;
 
 function setup() {
-  createCanvas(700, 600);
+  createCanvas(windowWidth, windowHeight);
+  background(100,0,0);
 
   // create an engine
   const engine = Matter.Engine.create();
@@ -27,12 +28,14 @@ function setup() {
     max: { x: width, y: height }
   };
   ball = new Ball(world,
-    { x: 100, y: 50, r: 40, color: 'white' },
+    { x: 100, y: 50, r: 40, color: "black" },
     { friction: 0.0, plugin: { wrap: wrap } }
   );
+  hoopleft = new Block(world,
+    { x: 900, y: 500, w: 50, h: 50, color: })
   ground = new Block(world,
-    { x: 550, y: 500, w: 500, h: 25, color: 'grey' },
-    { isStatic: true, angle: PI * -0.1 }
+    { x: 550, y: 500, w: 5000, h: 25, color: 'grey' },
+    { isStatic: true, angle: PI * 0 }
   );
 
   // setup mouse
@@ -43,7 +46,7 @@ function setup() {
 }
 
 function draw() {
-  background('black');
+  background("pink");
 
   ground.draw();
   polygon.draw();
